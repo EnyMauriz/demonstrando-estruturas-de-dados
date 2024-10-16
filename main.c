@@ -10,13 +10,13 @@ void pressAnyKeyToContinue() {
 }
 
 void clearSystem() {
-	system("cls");
+    system("cls");
 }
 
 int main() {
     setlocale(LC_ALL, "Portuguese"); 
 
-    HeaderList* list = createList();
+    HeaderList* list = createList();  // Criação da lista
     int choice, value, search;
 
     printf("Uma nova lista de números inteiros foi criada.\n");
@@ -24,7 +24,7 @@ int main() {
     getchar();
 
     while (1) {
-    	system("cls");
+        clearSystem();  // Limpa a tela
         printf("\nMenu:\n");
         printf("1. Inserir elemento no início da lista\n");
         printf("2. Inserir elemento no final da lista\n");
@@ -34,7 +34,8 @@ int main() {
         printf("6. Mostrar último elemento da lista\n");
         printf("7. Buscar um elemento na lista\n");
         printf("8. Imprimir a lista\n");
-        printf("9. Sair\n");
+        printf("9. Remover um elemento da lista\n");  // Nova opção para remover elemento
+        printf("10. Sair\n");  // Mudança no número da opção "Sair"
         printf("Escolha uma opção: ");
         scanf("%d", &choice);
 
@@ -84,17 +85,23 @@ int main() {
                 break;
 
             case 9:
-                printf("Saindo...\n");
-                free(list);
-                exit(0);
+                // Nova opção para remover elemento
+                printf("Digite o valor que deseja remover da lista: ");
+                scanf("%d", &search);
+                removeNode(list, search);  // Chama a função para remover o nó
                 break;
+
+            case 10:
+                printf("Saindo...\n");
+                destroyList(&list);  // Destroi a lista ao sair
+                return 0;  // Sai do programa
 
             default:
                 printf("Opção inválida! Tente novamente.\n");
                 break;
         }
 
-        pressAnyKeyToContinue();
+        pressAnyKeyToContinue();  // Pausa para continuar
     }
     return 0;
 }

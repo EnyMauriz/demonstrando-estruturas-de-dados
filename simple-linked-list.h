@@ -10,6 +10,9 @@ typedef struct _node Node;
 // Função que cria uma nova lista.
 HeaderList* createList();
 
+// Função que destroi uma lista.
+void destroyList(HeaderList** header_ref);
+
 // Função que cria um novo nó solto.
 Node* createNode(int value);
 
@@ -36,5 +39,8 @@ void lastNode(HeaderList* header);
 
 // Função que retorna um elemento na lista buscado pelo usuário.
 void findNode(HeaderList* header, int search);
+
+// Função que apaga um, e somente um, elemento da lista.
+void removeNode(HeaderList* header, int search);
 
 #endif
