@@ -168,4 +168,5 @@ void removeNode(HeaderList* header, int search){
 		}
 		free(index);
 	}
+	header->count--;
 }

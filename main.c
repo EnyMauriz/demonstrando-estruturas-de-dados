@@ -3,7 +3,7 @@
 #include <locale.h>
 #include "simple-linked-list.h"
 
-void pressAnyKeyToContinue() {
+void pressEnterToContinue() {
     printf("\nPressione enter para continuar...");
     getchar();
     getchar();
@@ -89,7 +89,8 @@ int main() {
                 printf("Digite o valor que deseja remover da lista: ");
                 scanf("%d", &search);
                 removeNode(list, search);  // Chama a função para remover o nó
-                break;
+                printf("Elemento %d removido da lista.\n", search);
+				break;
 
             case 10:
                 printf("Saindo...\n");
@@ -101,7 +102,7 @@ int main() {
                 break;
         }
 
-        pressAnyKeyToContinue();  // Pausa para continuar
+        pressEnterToContinue();  // Pausa para continuar
     }
     return 0;
 }
